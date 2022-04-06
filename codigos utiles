@@ -1,0 +1,192 @@
+#Speaker ids
+2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55
+venv
+source C:/Users/czuni/source/repos/DPRNN-Pytorch-master/avdp/venv/Scripts/activate
+source C:/Users/czuni/source/repos/DPRNN-Pytorch-master/avdp/venv12/Scripts/activate
+python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID"  -ns 80000 --train_set "va_f/TRAINING_SET" --val_set "va_f/VALIDATION_SET" --mode "var" --model "vl2m" --opt "adam" --exp "0" --audio_dim 129 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 10 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+
+python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/gridcorpus/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "mixed_audio/TEST_SET" --num_samples 0 --num_mix 1 --num_mix_speakers 1
+## Mezcla los diferentes audios
+# GRID ; f_audio;   train 10, val 3, test 3
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "f_audio/TEST_SET" --num_samples 3 --num_mix 1 --num_mix_speakers 1
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "f_audio/TRAINING_SET" --num_samples 10 --num_mix 1 --num_mix_speakers 1
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "f_audio/VALIDATION_SET" --num_samples 3 --num_mix 1 --num_mix_speakers 1
+# GRID_f ; f_audio;   train 800, val 100, test 100
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "f_audio/TEST_SET" --num_samples 100 --num_mix 1 --num_mix_speakers 1
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "f_audio/TRAINING_SET" --num_samples 800 --num_mix 1 --num_mix_speakers 1
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "f_audio/VALIDATION_SET" --num_samples 100 --num_mix 1 --num_mix_speakers 1
+# GRID_f ; fs_audio;   train 10, val 3, test 3
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "fs_audio/TEST_SET" --num_samples 3 --num_mix 1 --num_mix_speakers 1
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "fs_audio/TRAINING_SET" --num_samples 10 --num_mix 1 --num_mix_speakers 1
+*python av_speech_enhancement.py mixed_speech_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/" --base_speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "fs_audio/VALIDATION_SET" --num_samples 3 --num_mix 1 --num_mix_speakers 1
+
+## preprocesamiento del audio
+# GRID ; f_audio; 16.000; 80.000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID/f_audio/TEST_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 80000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID/f_audio/TRAINING_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 80000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID/f_audio/VALIDATION_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 80000
+# GRID_f ; f_audio; 16.000; 32.000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/f_audio/TEST_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 32000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/f_audio/TRAINING_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 32000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/f_audio/VALIDATION_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 32000
+# GRID_f ; fs_audio; 16.000; 32.000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/fs_audio/TEST_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 32000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/fs_audio/TRAINING_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 32000
+*python av_speech_enhancement.py audio_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f/fs_audio/VALIDATION_SET" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir " " --dest_dir " " --sample_rate 16000 --max_wav_length 32000
+
+av_speech_enhancement.py audio_preprocessing
+	--data_dir <data_dir>
+	--speaker_ids <spk1> <spk2> <...>
+	--audio_dir <audio_dir>
+	--dest_dir <dest_dir>
+	--sample_rate <sample_rate>
+	--max_wav_length <max_wav_length>
+
+##video preprocesamiento
+# GRID
+*python av_speech_enhancement.py video_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --video_dir "video" --dest_dir "video" --shape_predictor "C:/Users/czuni/source/repos/audio_visual_speech_enhancement/Pre_trained/shape_predictor_68_face_landmarks.dat" --ext "mov"
+# GRID_f
+*python av_speech_enhancement.py video_preprocessing --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --video_dir "video" --dest_dir "video" --shape_predictor "C:/Users/czuni/source/repos/audio_visual_speech_enhancement/Pre_trained/shape_predictor_68_face_landmarks.dat" --ext "mov"
+
+av_speech_enhancement.py video_preprocessing
+	--data_dir <data_dir>
+	--speaker_ids <spk1> <spk2> <...>
+	--video_dir <video_dir>
+	--dest_dir <dest_dir>
+	--shape_predictor <shape_predictor_file>
+	--ext <video_file_extension>
+##checkea el facelanmarks 
+av_speech_enhancement.py show_face_landmarks
+	--video <video_file>
+	--fps <fps>
+	--shape_predictor <shape_predictor_file>
+
+##compute TBM
+# GRID ; 80.000
+*129*python av_speech_enhancement.py tbm_computation --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "TBM" --sample_rate 16000 --max_wav_length 80000
+# GRID_f ; 32000
+*257*python av_speech_enhancement.py tbm_computation --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f" --speaker_ids 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 --audio_dir "audio" --dest_dir "TBM" --sample_rate 16000 --max_wav_length 32000
+
+av_speech_enhancement.py tbm_computation
+	--data_dir <data_dir>
+	--speaker_ids <spk1> <spk2> <...>
+	--audio_dir <audio_dir>
+	--dest_dir <dest_dir>
+	--sample_rate <sample_rate>
+	--max_wav_length <max_wav_length>
+
+	--mask_factor
+	--num_ltass
+
+##crea el training, validation y test set
+# GRID ; var ; va_f
+*python av_speech_enhancement.py tfrecords_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" --base_audio_dir "audio" --video_dir "video" --tbm_dir "TBM" --mix_audio_dir "f_audio" --norm_data_dir "norm"  --num_speakers 2 --mode "var" --dest_dir "va_f" --delta 1
+# GRID_f ; var ; va_f
+python av_speech_enhancement.py tfrecords_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f" --base_audio_dir "audio" --video_dir "video" --tbm_dir "TBM" --mix_audio_dir "f_audio" --norm_data_dir "norm"  --num_speakers 2 --mode "var" --dest_dir "va_f" --delta 1
+# GRID_f ; fixed ; fi_f
+*python av_speech_enhancement.py tfrecords_generator --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f" --base_audio_dir "audio" --video_dir "video" --tbm_dir "TBM" --mix_audio_dir "f_audio" --norm_data_dir "norm"  --num_speakers 2 --mode "fixed" --dest_dir "fi_f" --delta 1
+## Aca hizo uso de la gpu :o!
+python av_speech_enhancement.py tfrecords_generator 
+--data_dir       "C:/Users/czuni/source/repos/audio_visual_speech_enhancement/GRID" 
+--base_audio_dir "audio" 
+--video_dir      "video" 
+--tbm_dir        "TBM" 
+--mix_audio_dir  "mixed_1" 
+--norm_data_dir  "norm"  
+--num_speakers 2 --mode "var" --dest_dir "tfr" --delta 1
+
+av_speech_enhancement.py tfrecords_generator
+	--data_dir <data_dir>
+	--num_speakers <number_speakers_mixed> {2,3}
+	--mode <tfrecords_mode> {fixed,var}
+	--dest_dir <dest_dir>
+	--base_audio_dir <base_audio_dir>
+	--video_dir <video_dir>
+	--tbm_dir <tbm_dir>
+	--mix_audio_dir <mix_audio_dir>
+	--delta <delta_video_feat> {0,1,2]
+	--norm_data_dir <normalization_data_dir>
+conda install pydub dlib opencv imutils mir_eval
+##training
+# GRID ; ns 32.000 ; va_f ; var ; av_concat_ref ; A 129 ; V 136
+*shape error, 34800 with 32000*python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID"  -ns 0 --train_set "va_f/TRAINING_SET" --val_set "va_f/VALIDATION_SET" --mode "var" --model "vl2m" --opt "adam" --exp "0" --audio_dim 129 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 100 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+# GRID_f ; ns 32.000 ; va_f ; var ; vl2m ; A 129 ; V 136
+
+python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID"  -ns 80000 --train_set "va_f/TRAINING_SET" --val_set "va_f/VALIDATION_SET" --mode "var" --model "vl2m" --opt "adam" --exp "0" --audio_dim 129 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 10 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+# GRID_f ; ns 32.000 ; fi_f ; fixed ; vl2m ; A 129 ; V 136
+*257-129*python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID_f"  -ns 32000 --train_set "fi_f/TRAINING_SET" --val_set "fi_f/VALIDATION_SET" --mode "fixed" --model "vl2m" --opt "adam" --exp "0" --audio_dim 129 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 100 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+
+pip uninstall numpy
+y
+
+
+
+av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID"
+--train_set "ML/TRAINING_SET"
+--validation_set "ML/VALIDATION_SET"
+--mode "var"
+--model "av_concat_mask_ref"
+--opt "adam"
+--exp "0"
+--audio_dim 257
+--video_dim 136
+--updating_step 1000
+--learning_rate 0.1
+--batch_size 100
+--epochs 10
+--hidden_units 128
+--layers 5
+--dropout 1
+--regularization 0
+#--num_audio_samples
+
+python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" -ns 2 --train_set "tfr/TRAINING_SET" --val_set "tfr/VALIDATION_SET" --mode "var" --model "a_dprnn" --opt "adam" --exp "0" --audio_dim 257 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 100 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" -ns 2 --train_set "tfr/TRAINING_SET" --val_set "tfr/VALIDATION_SET" --mode "var" --model "vl2m" --opt "adam" --exp "0" --audio_dim 257 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 100 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+
+python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" -ns 80000 --train_set "tfr/TRAINING_SET" --val_set "tfr/VALIDATION_SET" --mode "var" --model "vl2m" --opt "adam" --exp "0" --audio_dim 257 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 100 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+
+python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" -ns 70000 --train_set "tfr_f/TRAINING_SET" --val_set "tfr_f/VALIDATION_SET" --mode "fixed" --model "vl2m" --opt "adam" --exp "0" --audio_dim 257 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 100 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+
+
+python av_speech_enhancement.py training --data_dir "C:/Users/czuni/source/repos/DPRNN-Pytorch-master/GRID" -ns 0 --train_set "tfr_F/TRAINING_SET" --val_set "tfr_f/VALIDATION_SET" --mode "fixed" --model "av_concat_mask_ref" --opt "adam" --exp "0" --audio_dim 257 --video_dim 136 --updating_step 1000 --learning_rate 0.1 --batch_size 100 --epochs 10 --hidden_units 128 --layers 5 --dropout 1 --regularization 0
+
+C:\Users\czuni\source\repos\DPRNN-Pytorch-master\GRID
+av_speech_enhancement.py training
+	--data_dir <data_dir>
+	--train_set <training_set_subdir>
+	--val_set <validation_set_subdir>
+	--exp <experiment_id>
+	--mode <tfrecords_mode> {fixed,var}
+	--audio_dim <audio_frame_dimension>
+	--video_dim <video_frame_dimension>
+	--num_audio_samples <num_audio_samples>
+	--model <model_selection> {vl2m,vl2m_ref,av_concat_mask,av_concat_mask_ref}
+	--opt <optimizer_choice> {sgd,adam,momentum}
+	--learning_rate <learning_rate>
+	--updating_step <updating_step>
+	--learning_decay <learning_decay>
+	--batch_size <batch_size>
+	--epochs <num_epochs>
+	--hidden_units <num_hidden_lstm_units>
+	--layers <num_lstm_layers>
+	--dropout <dropout_rate>
+	--regularization <regularization_weight>
+
+
+#testing
+av_speech_enhancement.py testing
+	--data_dir <data_dir>
+	--test_set <training_set_subdir>
+	--exp <experiment_id>
+	--ckp <model_checkpoint>
+	--mode <tfrecords_mode> {fixed,var}
+	--audio_dim <audio_frame_dimension>
+	--video_dim <video_frame_dimension>
+	--num_audio_samples <num_audio_samples>
+	--output_dir <output_dir>
+	--mask_dir <mask_dir>
+
+
+# instala los requerimientos
+pip install -r C:/Users/czuni/source/repos/audio_visual_speech_enhancement/requirements.txt
+
